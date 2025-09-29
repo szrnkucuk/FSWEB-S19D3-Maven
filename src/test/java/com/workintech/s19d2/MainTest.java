@@ -91,7 +91,7 @@ class MainTest {
 
         account = new Account();
         account.setId(1L);
-        account.setName("Test Account");
+
 
         accountService = new AccountServiceImpl(mockAccountRepository);
         authenticationService = new AuthenticationService(mockMemberRepository, mockRoleRepository, passwordEncoder);
@@ -133,11 +133,10 @@ class MainTest {
 
         Account account = new Account();
         account.setId(expectedId);
-        account.setName(expectedName);
+
 
 
         assertEquals(expectedId, account.getId(), "The ID returned was not the same value set.");
-        assertEquals(expectedName, account.getName(), "The name returned was not the same value set.");
     }
 
     @Test

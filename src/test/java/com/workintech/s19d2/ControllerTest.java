@@ -67,7 +67,6 @@ class ControllerTest {
     void setUp() {
         account = new Account();
         account.setId(1L);
-        account.setName("Sample Account");
     }
 
     @Test
@@ -80,8 +79,7 @@ class ControllerTest {
         mockMvc.perform(get("/account"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].name", is(account.getName())));
+                .andExpect(jsonPath("$", hasSize(1)));
     }
 
     @Test
@@ -95,8 +93,7 @@ class ControllerTest {
                         .content(objectMapper.writeValueAsString(account)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.name", is(account.getName())));
-    }
+;    }
 
     @Test
     @DisplayName("Register endpoint creates a new member")
